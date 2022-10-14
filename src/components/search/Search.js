@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startSearch, startTyping } from '../../store/search';
+import { startSearchWait, startTyping } from '../../store/actions/search';
 import classes from './Search.module.css';
 
 function Search() {
@@ -14,7 +14,7 @@ function Search() {
   // When submitted, changes search state to 'searching', which will be detected by the App
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(startSearch(title));
+    dispatch(startSearchWait(title));
   };
 
   // When key is stroked, changes state typing to true, which will be detected by the App

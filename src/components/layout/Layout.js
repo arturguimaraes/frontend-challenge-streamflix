@@ -8,6 +8,7 @@ import classes from './Layout.module.css';
 
 function Layout() {
   const location = useLocation();
+
   const { data } = useSelector((state) => state.searchState);
 
   let title = '';
