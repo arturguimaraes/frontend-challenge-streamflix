@@ -24,10 +24,6 @@ function Search() {
       // console.log('going back to home');
       dispatch(startTyping());
     }, 250);
-    
-    
-    
-
     return () => clearTimeout(timer);
   }, [title, dispatch]);
 
@@ -39,7 +35,7 @@ function Search() {
         name="title"
         placeholder="Search title"
         required
-        onKeyUp={(e) => setTitle(titleInput.current.value)}
+        onKeyUp={() => setTitle(titleInput.current.value)}
         disabled={loading}
         className={loading ? 'disabled' : ''}
       />

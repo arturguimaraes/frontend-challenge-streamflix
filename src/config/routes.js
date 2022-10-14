@@ -1,6 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { Redirect as RedirectRouter } from 'react-router-dom';
+import { Redirect as RedirectRouter, Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Search from '../views/Search';
 import Searching from '../views/Searching';
@@ -71,25 +70,25 @@ export function Routes() {
 export function Redirect() {
   // Checks if search is in progress
   const { loading, data, error, typing } = useSelector((state) => state.searchState);
-  //console.log(loading, data, error);
-  
+  // console.log(loading, data, error);
+
   /* If searching, redirects to searching */
   if (loading) return <RedirectRouter to="/searching" />;
 
   /* If typing, redirects to home */
   if (typing) return <RedirectRouter to="/" />;
-  
-  /* If error, redirects to error */ 
-  else if (error) {
-    console.log('Error fetching data from API:', error)
+
+  /* If error, redirects to error */
+  if (error) {
+    // console.log('Error fetching data from API:', error);
     return <RedirectRouter to="/error" />;
   }
-  
-  /* If found no results, redirects to no results */ 
-  else if (data === 'Not found') return <RedirectRouter to="/noResults" />;
 
-  /* If found results, redirects to title */ 
-  else if (data != null && data !== 'Not found') return <RedirectRouter to="/title" />;
+  /* If found no results, redirects to no results */
+  if (data === 'Not found') return <RedirectRouter to="/noResults" />;
+
+  /* If found results, redirects to title */
+  if (data != null && data !== 'Not found') return <RedirectRouter to="/title" />;
 
   /* If not any of below options, redirects to home */
   return <RedirectRouter to="/" />;
