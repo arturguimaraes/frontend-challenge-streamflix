@@ -1,15 +1,33 @@
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "menu   header  header  header  header  header  header"
+    "menu   main    main    main    main    main    main"
+    "left   main    main    main    main    main    main";
+  gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  padding: 20px 0;
+}
+
+.menu {
+  grid-area: menu;
+  padding: 100px;
+}
+
 .header {
-    width: 100vw;
+  font-size: 30px;
+  grid-area: header;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.logoContainer {
-    width: 30%;
+.left {
+  grid-area: left;
 }
 
-.titleContainer {
-    width: 70%;
-}
-
-.content {
-    width: 100%;
+.main {
+  grid-area: main;
 }

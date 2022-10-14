@@ -1,0 +1,7 @@
+.menu {
+  font-size: 10px;
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  float: right;
+}
