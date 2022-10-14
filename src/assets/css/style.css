@@ -5,15 +5,26 @@ input {
     width: auto;
 }
 
+input.disabled {
+    background-color: lightgray;
+    color: gray;
+}
+
 button {
     text-transform: uppercase;
     color: white;
     background-color: black;
     padding: 10px;
     border-radius: 5px;
+    border: none;
     width: auto;
     font-size: 20px;
 }
+
+button.disabled {
+    background-color: #aaa;
+}
+
 
 .hidden {
     display: none;
