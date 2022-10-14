@@ -1,14 +1,14 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import { getRoutes } from './config/routes';
-import { Redirect } from 'react-router-dom';
 
 function App() {
-  //Get app routes -> config/routes.js
+  // Get app routes -> config/routes.js
   const routes = getRoutes();
-  //Checks if search is in progress
+
+  // Checks if search is in progress
   const searching = useSelector((state) => state.searchState.searching);
   console.log(searching);
 

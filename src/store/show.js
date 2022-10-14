@@ -3,17 +3,21 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = { show: null };
 
 const showSlice = createSlice({
-  name: 'show',
   initialState,
+  name: 'show',
   reducers: {
-    setShow(state, action) {
-      state.show = action.payload;
-    },
     clearShow(state) {
-      state.show = null;
+      const newState = { ...state };
+      newState.show = null;
+      return newState;
+    },
+    setShow(state, action) {
+      const newState = { ...state };
+      newState.show = action.payload;
+      return newState;
     },
   },
 });
 
-export const { setShow, clearShow } = showSlice.actions;
+export const { clearShow, setShow } = showSlice.actions;
 export default showSlice.reducer;

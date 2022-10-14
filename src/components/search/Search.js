@@ -6,10 +6,11 @@ import classes from './Search.module.css';
 function Search() {
   const dispatch = useDispatch();
   const titleInput = useRef();
-  //Checks if search is in progress
+
+  // Checks if search is in progress
   const searching = useSelector((state) => state.searchState.searching);
 
-  //When submitted, changes search state to 'searching', which will be detected by the App
+  // When submitted, changes search state to 'searching', which will be detected by the App
   const submitHandler = (event) => {
     event.preventDefault();
     const title = titleInput.current.value;
