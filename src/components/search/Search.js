@@ -1,21 +1,35 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { startSearch } from '../../store/search';
+import { startSearch, startTyping } from '../../store/search';
 import classes from './Search.module.css';
 
 function Search() {
   const dispatch = useDispatch();
   const titleInput = useRef();
+  const [title, setTitle] = useState('');
 
   // Checks if search is in progress
-  const searching = useSelector((state) => state.searchState.searching);
+  const { loading } = useSelector((state) => state.searchState.loading);
 
   // When submitted, changes search state to 'searching', which will be detected by the App
   const submitHandler = (event) => {
     event.preventDefault();
-    const title = titleInput.current.value;
     dispatch(startSearch(title));
   };
+
+  // When key is stroked, changes state typing to true, which will be detected by the App
+  useEffect(() => {
+    // Set a timer to not call this redux action all the time
+    const timer = setTimeout(() => {
+      // console.log('going back to home');
+      dispatch(startTyping());
+    }, 250);
+    
+    
+    
+
+    return () => clearTimeout(timer);
+  }, [title, dispatch]);
 
   return (
     <form method="POST" className={classes.form} onSubmit={submitHandler}>
@@ -25,13 +39,14 @@ function Search() {
         name="title"
         placeholder="Search title"
         required
-        disabled={searching}
-        className={searching ? 'disabled' : ''}
+        onKeyUp={(e) => setTitle(titleInput.current.value)}
+        disabled={loading}
+        className={loading ? 'disabled' : ''}
       />
       <button
         type="submit"
-        disabled={searching}
-        className={searching ? 'disabled' : ''}
+        disabled={loading}
+        className={loading ? 'disabled' : ''}
       >
         Go
       </button>
