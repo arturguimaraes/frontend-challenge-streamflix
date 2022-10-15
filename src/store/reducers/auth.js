@@ -1,8 +1,21 @@
 import moment from 'moment';
 import { AuthenticationActions } from '../actions/auth';
 
+const loadFromLocalStorage = () => {
+    try {
+      const serializedStore = window.localStorage.getItem('auth');
+      if (serializedStore === null) return false;
+      const data = JSON.parse(serializedStore);
+      if (!data.authorized) return false;
+      return data.authorized;
+    } catch (e) {
+      // console.log('Error loading from local storage:', e);
+      return false;
+    }
+};
+
 const initialState = {
-    authorized: false,
+    authorized: loadFromLocalStorage(),
     failed: false,
     username: '',
     // eslint-disable-next-line
@@ -10,9 +23,9 @@ const initialState = {
 };
 
 const authReducer = (state = initialState, action = null) => {
+    // console.log('Reducer called - State:', state, 'Action:', action);
     switch (action.type) {
         case AuthenticationActions.LOGIN:
-            console.log('Reducer called - State:', state, 'Action:', action);
             // Error
             if (action.payload.password !== 'supersecret') {
                 return {
@@ -25,7 +38,8 @@ const authReducer = (state = initialState, action = null) => {
                 };
             }
             // Success
-            return {
+            // eslint-disable-next-line
+            const newState = {
                 ...state,
                 authorized: true,
                 failed: false,
@@ -33,8 +47,11 @@ const authReducer = (state = initialState, action = null) => {
                 // eslint-disable-next-line
                 time: moment(),
             };
+            // Set to local storage
+            window.localStorage.setItem('auth', JSON.stringify(newState));
+            return newState;
         case AuthenticationActions.LOGOUT:
-            console.log('Reducer called - State:', state, 'Action:', action);
+            window.localStorage.removeItem('auth');
             return {
                 ...state,
                 authorized: false,

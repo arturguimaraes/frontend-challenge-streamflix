@@ -4,10 +4,17 @@
     cursor: pointer;
     font-size: 10px;
     position: fixed;
-    right: 6rem;
-    top: 3rem;
+    right: 3rem;
+    top: 2rem;
 }
 
 .logout:hover {
     text-decoration: underline;
+}
+
+@media only screen and (min-width: 800px) {
+    .logout {
+        right: 6rem;
+        top: 3rem;
+    }
 }

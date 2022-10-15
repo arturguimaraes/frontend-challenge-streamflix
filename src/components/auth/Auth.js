@@ -28,16 +28,13 @@ function Auth() {
     if (authState.failed && username !== '') wrongPasswordHandler();
   }, [authState]);
 
-  useEffect(() => {
-    console.log('password wrong', wrongPassword);
-  }, [wrongPassword]);
-
   const wrongPasswordHandler = () => {
-    console.log('password error');
     usernameInput.current.value = username;
-    console.log(usernameInput.current.classes);
     passwordInput.current.value = '';
     setWrongPassword(true);
+    setTimeout(() => {
+      setWrongPassword(false);
+    }, 2000);
   };
 
   // Test
