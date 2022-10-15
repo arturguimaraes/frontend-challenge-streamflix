@@ -5,30 +5,8 @@ function Loader() {
   return (
     <div className={classes.container}>
       <div className={classes.loader}>
-        <div>
-          <span className="hidden">Loader</span>
-        </div>
-        <div>
-          <span className="hidden">Loader</span>
-        </div>
-        <div>
-          <span className="hidden">Loader</span>
-        </div>
-        <div>
-          <span className="hidden">Loader</span>
-        </div>
-        <div>
-          <span className="hidden">Loader</span>
-        </div>
-        <div>
-          <span className="hidden">Loader</span>
-        </div>
-        <div>
-          <span className="hidden">Loader</span>
-        </div>
-        <div>
-          <span className="hidden">Loader</span>
-        </div>
+        <div className={`${classes.inner} ${classes.one}`} />
+        <div className={`${classes.inner} ${classes.two}`} />
       </div>
     </div>
   );

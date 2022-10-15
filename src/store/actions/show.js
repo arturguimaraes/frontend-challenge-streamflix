@@ -45,7 +45,7 @@ export const fetchShowWait = (searchInput) => (dispatch) => {
   // Dispatch loading
   dispatch(fetchShowRequest());
   // Waiting time
-  const fakeWaitingTime = 500;
+  const fakeWaitingTime = 1000;
   // console.log(`Waiting ${fakeWaitingTime / 1000} seconds...`);
   setTimeout(() => {
     dispatch(fetchShow(searchInput));
