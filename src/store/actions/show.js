@@ -92,11 +92,19 @@ export const fetchShow = (searchInput) => async (dispatch) => {
   const seasons = [];
   episodes.forEach((episode) => {
     const { season } = episode;
+    const index = season - 1;
     // If season not created, create new array
-    if (!seasons[season]) seasons[season] = [];
-    seasons[season].push(episode);
+    if (!seasons[index]) {
+      const formattedSeason = {
+        name: `Season ${season}`,
+        number: season,
+        // eslint-disable-next-line
+        episodes: [],
+      };
+      seasons[index] = formattedSeason;
+    }
+    seasons[index].episodes.push(episode);
   });
-
   // Dispatch Seasons and Episodes
   dispatch(setSeasons(seasons));
 };

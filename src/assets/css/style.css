@@ -36,3 +36,34 @@ button.disabled {
 .center {
   text-align: center;
 }
+@media only screen and (max-width: 996px) {
+  .center-mobile {
+    text-align: center;
+  }
+
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #555753;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00C4CC;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00969b;
+}

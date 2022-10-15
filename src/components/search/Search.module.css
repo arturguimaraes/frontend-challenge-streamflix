@@ -4,3 +4,7 @@
     display: grid;
     gap: 20px;
 }
+
+.button:hover {
+    cursor: pointer;
+}

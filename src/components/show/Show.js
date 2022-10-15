@@ -15,15 +15,7 @@ function Show() {
     const { selected, seasons } = useSelector((state) => state.seasonState);
     const hasSeasons = seasons.length > 0;
     // Format season
-    let season = null;
-    if (hasSeasons) {
-      season = {
-        name: `Season ${selected}`,
-        number: selected,
-        // eslint-disable-next-line
-        episodes: seasons[selected],
-      };
-    }
+    const season = !hasSeasons ? null : seasons[selected - 1];
 
     return (
       <div>

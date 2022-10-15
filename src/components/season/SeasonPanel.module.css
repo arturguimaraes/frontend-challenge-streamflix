@@ -1,7 +1,15 @@
-.selected {
-    color: blue;
+.clickable {
+    width: 100%;
+    background: none;
+    color: #555753;
+    text-transform: unset !important;
 }
 
 .clickable:hover {
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.selected {
+    color: #00C4CC;
 }

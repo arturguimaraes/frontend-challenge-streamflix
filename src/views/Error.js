@@ -1,7 +1,11 @@
 import React from 'react';
 
 function Error() {
-  return <div>Error fetching data.</div>;
+  return (
+    <div className="center-mobile">
+      <p>Error fetching data.</p>
+    </div>
+  );
 }
 
 export default Error;

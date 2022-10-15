@@ -18,6 +18,7 @@ function Search() {
   const submitHandler = (event) => {
     event.preventDefault();
     dispatch(fetchShowWait(title));
+    dispatch(emptySeasons());
   };
 
   // On first load only, get focus to serach input
@@ -56,13 +57,7 @@ function Search() {
         disabled={loading}
         className={loading ? 'disabled' : ''}
       />
-      <button
-        type="submit"
-        disabled={loading}
-        className={loading ? 'disabled' : ''}
-      >
-        Go
-      </button>
+      <button type="submit" disabled={loading} className={`${classes.button} ${loading ? 'disabled' : ''}`}>Go</button>
     </form>
   );
 }

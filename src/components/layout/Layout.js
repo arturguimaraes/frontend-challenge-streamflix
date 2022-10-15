@@ -3,9 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Routes, Redirect, findRoute } from '../../config/routes';
 import Search from '../search/Search';
+import LeftPanel from '../season/LeftPanel';
 import logo from '../../assets/logo.svg';
 import classes from './Layout.module.css';
-import LeftPanel from '../season/LeftPanel';
 
 function Layout() {
   const location = useLocation();
@@ -23,15 +23,21 @@ function Layout() {
   }
 
   return (
-    <div className={classes['grid-container']}>
-      <div className={classes.menu}>
-        <Link to="/"><img src={logo} alt="Logo" /></Link>
-        <Search />
+    <div className={classes.main}>
+      <div className={classes.left}>
+        <div className={classes.search}>
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+          </Link>
+          <Search />
+        </div>
+        {seasons.length > 0 && <LeftPanel />}
       </div>
-      <div className={classes.header}>{title}</div>
-      <div className={classes.left}>{seasons.length > 0 && <LeftPanel />}</div>
-      <div className={classes.main}>
-        <div className={classes.container}>
+      <div className={classes.container}>
+        <div className={classes.header}>
+          <h1>{title}</h1>
+        </div>
+        <div className={classes.content}>
           <Routes />
           <Redirect />
         </div>

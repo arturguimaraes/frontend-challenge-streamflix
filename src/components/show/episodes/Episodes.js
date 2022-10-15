@@ -11,9 +11,7 @@ function Episodes({ season }) {
 
   return (
     <div className={classes.container}>
-      <div className={classes.episodes}>
-        { episodes.map((episode) => <Episode key={episode.id} episode={episode} />)}
-      </div>
+      { episodes.map((episode) => <Episode key={episode.id} episode={episode} />)}
     </div>
   );
 }

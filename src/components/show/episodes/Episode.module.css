@@ -1,15 +1,13 @@
 .episode {
     border: 2px solid lightgray;
     margin-bottom: 2rem;
-    display: flex;
 }
 
 .imageContainer {
-    width: 300px;
+    width: 100%;
 }
 
 .image {
-    height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
@@ -18,7 +16,6 @@
 .summary {
     padding: 1rem 2rem;
     text-align: justify;
-    width: calc(100% - 300px);
     font-size: 1.2rem;
 }
 
@@ -38,4 +35,22 @@
 .summaryElement > p {
     margin-top: 0;
     font-size: 1rem;
+}
+
+@media only screen and (min-width: 996px) {
+    .episode {
+        display: flex;
+    }
+
+    .imageContainer {
+        width: 300px;
+    }
+
+    .image {
+        height: 100%;
+    }
+
+    .summary {
+        width: calc(100% - 300px);
+    }
 }

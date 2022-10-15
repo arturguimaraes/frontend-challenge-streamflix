@@ -1,3 +1,26 @@
 .container {
     display: inline-block;
+    width: 100%;
+}
+
+.clickableMobile {
+    width: 100%;
+    background: none;
+    color: #555753;
+}
+
+.clickableMobile:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 996px) {
+    .container {
+        overflow-y: auto;
+        height: calc(100vh - 300px - 1rem);
+    }
+    
+    .clickableMobile {
+        display: none;
+    }
 }

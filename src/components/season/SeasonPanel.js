@@ -4,17 +4,17 @@ import { selectSeason } from '../../store/actions/season';
 import SeasonProps from '../../types/Season';
 import classes from './SeasonPanel.module.css';
 
-function SeasonPanel({ season }) {
-    const { name, number, selected } = season;
-    const dispatch = useDispatch();
+function SeasonPanel({ season, hiddenMobile, selected }) {
+  const { name, number } = season;
+  const dispatch = useDispatch();
 
-    const clickHandler = () => {
-        if (!selected) {
-            dispatch(selectSeason(number));
-        }
-    };
+  const clickHandler = () => {
+    if (!selected) {
+      dispatch(selectSeason(number));
+    }
+  };
 
-    return <button type="button" onClick={clickHandler} className={`clickable ${selected ? classes.selected : ''}`}>{name}</button>;
+  return <button onClick={clickHandler} className={`${classes.clickable} ${selected && classes.selected} ${hiddenMobile && 'hidden-mobile'}`} type="button">{name}</button>;
 }
 
 SeasonPanel.propTypes = SeasonProps;

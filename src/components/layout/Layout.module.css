@@ -1,38 +1,54 @@
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    "menu   header  header  header  header  header  header"
-    "menu   main    main    main    main    main    main"
-    "left   main    main    main    main    main    main";
-  gap: 10px;
-  padding: 10px;
-}
-
-.grid-container > div {
-  padding: 20px 0;
-}
-
-.menu {
-  grid-area: menu;
-  padding: 100px;
-}
-
-.header {
-  font-size: 4rem;
-  grid-area: header;
-  padding-left: 10% !important;
-  margin-bottom: 30px;
-  text-transform: uppercase;
+.main {
+  width: 100%;
 }
 
 .left {
-  grid-area: left;
-}
-
-.main {
-  grid-area: main;
+  padding: 3rem 3rem 0 3rem;
 }
 
 .container {
-  padding: 0 50px;
+  padding: 0 3rem;
+}
+
+.header {
+  text-align: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .left {
+    position: fixed;
+    overflow-y: auto;
+    width: 300px;
+    padding: 1rem 3rem;
+    top: 0;
+    left: 0;
+  }
+  
+  .container {
+    position: absolute;
+    overflow-y: auto;
+    width: calc(100% - 300px - 9rem);
+    padding: 0 3rem;
+    top: 0;
+    left: calc(300px + 3rem);
+  }
+
+  .header {
+    position: fixed;
+    /* width: calc(100% - 300px - 6rem); */
+    text-align: left;
+    font-size: 2rem;
+    margin-left: 10%;
+  }
+
+  .header > h1 {
+    padding: 2rem;
+    background-color: rgba(255,255,255,0.7);
+  }
+
+  .content {
+    padding: 0 3rem;
+    margin-top: 12rem;
+  }
+
 }

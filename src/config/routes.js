@@ -3,10 +3,8 @@ import { Redirect as RedirectRouter, Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Search from '../views/Search';
 import Searching from '../views/Searching';
-import ShowSearch from '../views/ShowSearch';
 import Title from '../views/Title';
 import NoResults from '../views/NoResults';
-import NotFound from '../views/NotFound';
 import Error from '../views/Error';
 
 const ROUTES = [
@@ -22,12 +20,6 @@ const ROUTES = [
     id: 'searching',
     path: '/searching',
     title: 'Searching',
-  },
-  {
-    component: <ShowSearch />,
-    id: 'showSearch',
-    path: '/showSearch',
-    title: 'Show Search',
   },
   {
     component: <Title />,
@@ -46,11 +38,6 @@ const ROUTES = [
     id: 'error',
     path: '/error',
     title: 'Error',
-  },
-  {
-    component: <NotFound />,
-    id: 'notFound',
-    title: 'Not Found',
   },
 ];
 
