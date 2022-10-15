@@ -6,6 +6,9 @@ import classes from './Episodes.module.css';
 function Episodes({ season }) {
   const { episodes } = season;
 
+  // Ascending order
+  episodes.sort((a, b) => a.number - b.number);
+
   return (
     <div className={classes.container}>
       <div className={classes.episodes}>

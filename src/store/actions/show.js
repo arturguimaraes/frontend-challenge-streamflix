@@ -67,7 +67,7 @@ export const fetchShow = (searchInput) => async (dispatch) => {
   if (error || !response) {
     // console.log('Error:', error.message);
     dispatch(fetchShowError(error));
-    // Empty Seasons and Episodes
+    // Empty Seasons
     dispatch(emptySeasons());
     return;
   }
@@ -78,7 +78,7 @@ export const fetchShow = (searchInput) => async (dispatch) => {
   if (response.status !== 200 || show == null) {
     // console.log('Title not found');
     dispatch(fetchShowSuccess('Not found'));
-    // Empty Seasons and Episodes
+    // Empty Seasons
     dispatch(emptySeasons());
     return;
   }
@@ -98,7 +98,7 @@ export const fetchShow = (searchInput) => async (dispatch) => {
   });
 
   // Dispatch Seasons and Episodes
-  dispatch(setSeasons(seasons, episodes));
+  dispatch(setSeasons(seasons));
 };
 
 export const { startTyping, fetchShowRequest, fetchShowSuccess, fetchShowError } = showSlice;

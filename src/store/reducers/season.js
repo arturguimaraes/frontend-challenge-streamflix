@@ -4,20 +4,17 @@ const initialState = {
     selected: 1,
     // eslint-disable-next-line
     seasons: [],
-    // eslint-disable-next-line
-    episodes: [],
 };
 
 const seasonReducer = (state = initialState, action = null) => {
+    // console.log('Reducer called - State:', state, 'Action:', action);
     switch (action.type) {
         case SeasonActions.SET_SEASONS:
             return {
                 ...state,
                 selected: 1,
                 // eslint-disable-next-line
-                seasons: action.payload.seasons,
-                // eslint-disable-next-line
-                episodes: action.payload.episodes,
+                seasons: action.payload,
             };
         case SeasonActions.SELECT_SEASON:
             return {
@@ -30,8 +27,6 @@ const seasonReducer = (state = initialState, action = null) => {
                 selected: 1,
                 // eslint-disable-next-line
                 seasons: [],
-                // eslint-disable-next-line
-                episodes: [],
             };
         // Return current state
         default:

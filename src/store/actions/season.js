@@ -7,14 +7,10 @@ export const SeasonActions = {
 };
 
 const seasonSlice = {
-    setSeasons: (seasons, episodes) => ({
+    setSeasons: (seasons) => ({
       type: SeasonActions.SET_SEASONS,
       // eslint-disable-next-line
-      payload: {
-        seasons,
-        // eslint-disable-next-line
-        episodes,
-      }
+      payload: seasons,
     }),
     // eslint-disable-next-line
     selectSeason: (season) => ({
