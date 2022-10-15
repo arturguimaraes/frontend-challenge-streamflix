@@ -5,16 +5,17 @@ import { Routes, Redirect, findRoute } from '../../config/routes';
 import Search from '../search/Search';
 import logo from '../../assets/logo.svg';
 import classes from './Layout.module.css';
+import LeftPanel from '../season/LeftPanel';
 
 function Layout() {
   const location = useLocation();
-
-  const { data } = useSelector((state) => state.searchState);
+  const { show } = useSelector((state) => state.showState);
+  const { seasons } = useSelector((state) => state.seasonState);
 
   let title = '';
-  if (location.pathname === '/title' && data !== null && data !== 'Not found') {
+  if (location.pathname === '/title' && show !== null && show !== 'Not found') {
     // If on show page, change title to show's name
-    title = data.name;
+    title = show.name;
   } else {
     // Else, show route name
     const route = findRoute(location.pathname);
@@ -28,7 +29,7 @@ function Layout() {
         <Search />
       </div>
       <div className={classes.header}>{title}</div>
-      <div className={classes.left}>Left</div>
+      <div className={classes.left}>{seasons.length > 0 && <LeftPanel />}</div>
       <div className={classes.main}>
         <div className={classes.container}>
           <Routes />

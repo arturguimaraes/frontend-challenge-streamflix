@@ -1,9 +1,11 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import searchReducer from './reducers/search';
+import seasonReducer from './reducers/season';
+import showReducer from './reducers/show';
 
 const createRootReducer = () => combineReducers({
-  searchState: searchReducer
+  seasonState: seasonReducer,
+  showState: showReducer,
 });
 
 const store = createStore(createRootReducer(), applyMiddleware(thunk));

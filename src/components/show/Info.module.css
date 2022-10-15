@@ -17,6 +17,10 @@
     padding-left: 2rem;
     padding-right: 2rem;
     text-align: justify;
-    width: calc(100% - 100px);
+    width: calc(100% - 200px);
     font-size: 1.2rem;
+}
+
+.summaryElement > p {
+    margin-top: 0;
 }

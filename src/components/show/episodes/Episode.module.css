@@ -1,0 +1,41 @@
+.episode {
+    border: 2px solid lightgray;
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+.imageContainer {
+    width: 300px;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.summary {
+    padding: 1rem 2rem;
+    text-align: justify;
+    width: calc(100% - 300px);
+    font-size: 1.2rem;
+}
+
+.detail {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.summaryElement > p {
+    margin-top: 0;
+    font-size: 1rem;
+}

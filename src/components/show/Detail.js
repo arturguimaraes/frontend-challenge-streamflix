@@ -1,36 +1,41 @@
 import React from 'react';
 import moment from 'moment/moment';
+import { ShowProps, ShowDefaultProps } from '../../types/Show';
 import classes from './Detail.module.css';
 
 function Detail({ show }) {
+    const { premiered, language, rating, genres } = show;
     return (
       <div className={classes.detail}>
-        {show.premiered && (
+        {premiered && (
         <span className={classes.detailInfo}>
           <b>Year:</b>
-          {moment(show.premiered).format('YYYY')}
+          {moment(premiered).format('YYYY')}
         </span>
         )}
-        {show.language && (
+        {language && (
         <span className={classes.detailInfo}>
           <b>Language:</b>
-          {show.language}
+          {language}
         </span>
         )}
-        {show.rating && show.rating.average && (
+        {rating && rating.average && (
         <span className={classes.detailInfo}>
           <b>Rating:</b>
-          {show.rating.average}
+          {rating.average}
         </span>
         )}
-        {show.genres && show.genres.length > 0 && (
+        {genres && genres.length > 0 && (
         <span className={classes.detailInfo}>
           <b>Genres:</b>
-          {show.genres.join(', ')}
+          {genres.join(', ')}
         </span>
         )}
       </div>
     );
 }
+
+Detail.propTypes = ShowProps;
+Detail.defaultProps = ShowDefaultProps;
 
 export default Detail;

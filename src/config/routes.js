@@ -69,7 +69,7 @@ export function Routes() {
 
 export function Redirect() {
   // Checks if search is in progress
-  const { loading, data, error, typing } = useSelector((state) => state.searchState);
+  const { loading, show, error, typing } = useSelector((state) => state.showState);
   // console.log(loading, data, error);
 
   /* If searching, redirects to searching */
@@ -85,10 +85,10 @@ export function Redirect() {
   }
 
   /* If found no results, redirects to no results */
-  if (data === 'Not found') return <RedirectRouter to="/noResults" />;
+  if (show === 'Not found') return <RedirectRouter to="/noResults" />;
 
   /* If found results, redirects to title */
-  if (data != null && data !== 'Not found') return <RedirectRouter to="/title" />;
+  if (show != null && show !== 'Not found') return <RedirectRouter to="/title" />;
 
   /* If not any of below options, redirects to home */
   return <RedirectRouter to="/" />;

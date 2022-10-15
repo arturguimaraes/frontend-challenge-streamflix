@@ -1,0 +1,7 @@
+.selected {
+    color: blue;
+}
+
+.clickable:hover {
+    text-decoration: underline;
+}
