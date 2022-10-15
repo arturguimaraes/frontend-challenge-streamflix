@@ -43,6 +43,11 @@ const ROUTES = [
 
 /* Maps all routes */
 export function Routes() {
+  const { authorized } = useSelector((state) => state.authState);
+
+  // If not logged in, no access to any pages
+  if (!authorized) return null;
+
   return (
     <Switch>
       {ROUTES.map((route) => (

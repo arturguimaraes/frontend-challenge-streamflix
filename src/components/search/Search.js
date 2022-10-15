@@ -21,12 +21,6 @@ function Search() {
     dispatch(emptySeasons());
   };
 
-  // On first load only, get focus to serach input
-  useEffect(() => {
-    titleInput.current.value = 'Silicon Valley';
-    setTitle('Silicon Valley');
-  }, []);
-
   // When on home, error or no results, get focus to input to improve UX
   useEffect(() => {
     if (location.pathname === '/' || location.pathname === '/noResults' || location.pathname === '/error') {
@@ -44,6 +38,12 @@ function Search() {
     }, 250);
     return () => clearTimeout(timer);
   }, [title, dispatch]);
+
+  // Test
+  // useEffect(() => {
+  //   titleInput.current.value = 'Silicon Valley';
+  //   setTitle(titleInput.current.value);
+  // }, []);
 
   return (
     <form method="POST" className={classes.form} onSubmit={submitHandler}>

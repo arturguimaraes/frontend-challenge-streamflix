@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { Routes, Redirect, findRoute } from '../../config/routes';
 import Search from '../search/Search';
 import LeftPanel from '../season/LeftPanel';
+import Auth from '../auth/Auth';
+import Logout from '../auth/Logout';
 import logo from '../../assets/logo.svg';
 import classes from './Layout.module.css';
 
@@ -11,9 +13,12 @@ function Layout() {
   const location = useLocation();
   const { show } = useSelector((state) => state.showState);
   const { seasons } = useSelector((state) => state.seasonState);
+  const { authorized } = useSelector((state) => state.authState);
 
   let title = '';
-  if (location.pathname === '/title' && show !== null && show !== 'Not found') {
+  if (!authorized) {
+    title = 'Login';
+  } else if (location.pathname === '/title' && show !== null && show !== 'Not found') {
     // If on show page, change title to show's name
     title = show.name;
   } else {
@@ -29,11 +34,17 @@ function Layout() {
           <Link to="/">
             <img src={logo} alt="Logo" />
           </Link>
-          <Search />
+          {!authorized && <Auth />}
+          {authorized && <Search />}
         </div>
-        {seasons.length > 0 && <LeftPanel />}
+        {authorized && seasons.length > 0 && <LeftPanel />}
       </div>
       <div className={classes.container}>
+        {authorized && (
+          <div className={classes.logoutContainer}>
+            <Logout />
+          </div>
+        )}
         <div className={classes.header}>
           <h1>{title}</h1>
         </div>
