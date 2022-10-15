@@ -1,7 +1,8 @@
 import React from 'react';
+import Show from '../components/show/Show';
 
 function Title() {
-  return <div>Title</div>;
+  return <Show />;
 }
 
 export default Title;

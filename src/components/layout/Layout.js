@@ -13,8 +13,10 @@ function Layout() {
 
   let title = '';
   if (location.pathname === '/title' && data !== null && data !== 'Not found') {
+    // If on show page, change title to show's name
     title = data.name;
   } else {
+    // Else, show route name
     const route = findRoute(location.pathname);
     title = route.title;
   }

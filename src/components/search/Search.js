@@ -9,13 +9,20 @@ function Search() {
   const [title, setTitle] = useState('');
 
   // Checks if search is in progress
-  const { loading } = useSelector((state) => state.searchState.loading);
+  const { loading } = useSelector((state) => state.searchState);
 
   // When submitted, changes search state to 'searching', which will be detected by the App
   const submitHandler = (event) => {
     event.preventDefault();
     dispatch(startSearchWait(title));
   };
+
+  // On first load only, get focus to serach input
+  useEffect(() => {
+    titleInput.current.focus();
+    titleInput.current.value = 'Silicon Valley';
+    setTitle('Silicon Valley');
+  }, []);
 
   // When key is stroked, changes state typing to true, which will be detected by the App
   useEffect(() => {

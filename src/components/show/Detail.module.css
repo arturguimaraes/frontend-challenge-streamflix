@@ -1,0 +1,11 @@
+.detail {
+    display: flex;
+    width: calc(100% - 100px);
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.detailInfo {
+    display: flex;
+    gap: 5px;
+}

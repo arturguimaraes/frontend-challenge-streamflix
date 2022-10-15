@@ -18,9 +18,10 @@
 }
 
 .header {
-  font-size: 30px;
+  font-size: 4rem;
   grid-area: header;
-  text-align: center;
+  padding-left: 10% !important;
+  margin-bottom: 30px;
   text-transform: uppercase;
 }
 
@@ -33,5 +34,5 @@
 }
 
 .container {
-  padding: 10px 50px;
+  padding: 0 50px;
 }

@@ -27,13 +27,13 @@ const searchAsyncActions = {
   }),
 };
 
-// Fake timer to see loader, if not needed, just change startSearchWait for startSearch
-// at components/search/Search.js
+// Fake timer to see loader, if not needed, just change startSearchWait
+// for startSearch at components/search/Search.js
 export const startSearchWait = (searchInput) => (dispatch) => {
   // Dispatch loading
   dispatch(startSearchRequest());
   // Waiting time
-  const fakeWaitingTime = 1000;
+  const fakeWaitingTime = 500;
   // console.log(`Waiting ${fakeWaitingTime / 1000} seconds...`);
   setTimeout(() => {
     dispatch(startSearch(searchInput));
@@ -46,12 +46,11 @@ const endpoint = 'https://api.tvmaze.com/singlesearch';
 // const endpoint = 'https://api.tvmaze.c124128410924012984098092134820942om/singlesearch';
 
 export const startSearch = (searchInput) => async (dispatch) => {
-  const url = `${endpoint}/shows?q=${encodeURI(searchInput)}`;
-  // eslint-disable-next-line
-  console.log('Searching:', url);
   // Dispatch loading
   dispatch(startSearchRequest());
+
   // Fetch data
+  const url = `${endpoint}/shows?q=${encodeURI(searchInput)}`;
   const { response, error } = await fetch(url)
   // eslint-disable-next-line
   .then((response) => ({ error: null, response }))
@@ -59,22 +58,22 @@ export const startSearch = (searchInput) => async (dispatch) => {
   .catch((error) => ({ error, response: null }));
   // If error fetching data
   if (error || !response) {
-    // eslint-disable-next-line
-    console.log('Error:', error.message);
+    // console.log('Error:', error.message);
     dispatch(startSearchError(error));
     return;
   }
+
+  // Converts StreamReader
   const data = await response.json();
   // Title not found
   if (response.status !== 200 || data == null) {
-    // eslint-disable-next-line
-    console.log('Title not found');
+    // console.log('Title not found');
     dispatch(startSearchSuccess('Not found'));
     return;
   }
+
   // Success
-  // eslint-disable-next-line
-  console.log('Title found:', data);
+  // console.log('Title found:', data);
   dispatch(startSearchSuccess(data));
 };
 
