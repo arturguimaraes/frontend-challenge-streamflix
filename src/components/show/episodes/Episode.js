@@ -18,7 +18,7 @@ function Episode({ episode }) {
   return (
     <div className={classes.episode}>
       <div className={classes.imageContainer}>
-        {!imageSrc && <p>No image</p>}
+        {!imageSrc && <p className={classes.noImage}>No image</p>}
         {imageSrc && <img className={classes.image} src={imageSrc} alt={name} />}
       </div>
       <div className={classes.summary}>

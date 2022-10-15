@@ -51,6 +51,7 @@ const authReducer = (state = initialState, action = null) => {
             window.localStorage.setItem('auth', JSON.stringify(newState));
             return newState;
         case AuthenticationActions.LOGOUT:
+            // Remove from local storage
             window.localStorage.removeItem('auth');
             return {
                 ...state,

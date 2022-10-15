@@ -18,6 +18,10 @@
     font-size: 1.2rem;
 }
 
+.noImage {
+    padding: 0 1rem;
+}
+
 @media only screen and (min-width: 996px) {
     .info {
         border: 2px solid black;
