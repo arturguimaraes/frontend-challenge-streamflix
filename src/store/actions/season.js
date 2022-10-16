@@ -7,21 +7,17 @@ export const SeasonActions = {
 };
 
 const seasonSlice = {
-    setSeasons: (seasons) => ({
-      type: SeasonActions.SET_SEASONS,
-      // eslint-disable-next-line
-      payload: seasons,
-    }),
-    // eslint-disable-next-line
-    selectSeason: (season) => ({
-      type: SeasonActions.SELECT_SEASON,
-      // eslint-disable-next-line
-      payload: season,
-    }),
-    // eslint-disable-next-line
-    emptySeasons: () => ({
-      type: SeasonActions.EMPTY_SEASONS,
-    })
+  emptySeasons: () => ({
+    type: SeasonActions.EMPTY_SEASONS,
+  }),
+  selectSeason: (season) => ({
+    payload: season,
+    type: SeasonActions.SELECT_SEASON,
+  }),
+  setSeasons: (seasons) => ({
+    payload: seasons,
+    type: SeasonActions.SET_SEASONS,
+  }),
 };
 
 export const { setSeasons, selectSeason, emptySeasons } = seasonSlice;

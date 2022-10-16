@@ -1,13 +1,10 @@
 import { setSeasons, emptySeasons } from './season';
 
 export const ShowActions = {
-  START_TYPING: 'START_TYPING',
-  // eslint-disable-next-line
+  FETCH_SHOW_ERROR: 'FETCH_SHOW_ERROR',
   FETCH_SHOW_REQUEST: 'FETCH_SHOW_REQUEST',
-  // eslint-disable-next-line
   FETCH_SHOW_SUCCESS: 'FETCH_SHOW_SUCCESS',
-  // eslint-disable-next-line
-  FETCH_SHOW_ERROR: 'FETCH_SHOW_ERROR',  
+  START_TYPING: 'START_TYPING',
 };
 
 // ENDPOINT
@@ -16,27 +13,22 @@ const endpoint = 'https://api.tvmaze.com/singlesearch';
 // const endpoint = 'https://api.tvmaze.c124128410924012984098092134820942om/singlesearch';
 
 const showSlice = {
+  // Start Search Async Actions
+  fetchShowError: (error) => ({
+    payload: error,
+    type: ShowActions.FETCH_SHOW_ERROR,
+  }),
+  fetchShowRequest: () => ({
+    type: ShowActions.FETCH_SHOW_REQUEST
+  }),
+  fetchShowSuccess: (show) => ({
+    payload: show,
+    type: ShowActions.FETCH_SHOW_SUCCESS,
+  }),
   // Start Typing Action
   startTyping: () => ({
     type: ShowActions.START_TYPING
   }),
-  // Start Search Async Actions
-  // eslint-disable-next-line
-  fetchShowRequest: () => ({
-    type: ShowActions.FETCH_SHOW_REQUEST
-  }),
-  // eslint-disable-next-line
-  fetchShowSuccess: (show) => ({
-    type: ShowActions.FETCH_SHOW_SUCCESS,
-    // eslint-disable-next-line
-    payload: show,
-  }),
-  // eslint-disable-next-line
-  fetchShowError: (error) => ({
-    type: ShowActions.FETCH_SHOW_ERROR,
-    // eslint-disable-next-line
-    payload: error,
-  })
 };
 
 // Fake timer to see loader, if not needed, just change fetchShowWait
@@ -55,14 +47,11 @@ export const fetchShowWait = (searchInput) => (dispatch) => {
 export const fetchShow = (searchInput) => async (dispatch) => {
   // Dispatch loading
   dispatch(fetchShowRequest());
-
   // Fetch data
   const url = `${endpoint}/shows?q=${encodeURI(searchInput)}&embed=episodes`;
   const { response, error } = await fetch(url)
-  // eslint-disable-next-line
-  .then((response) => ({ error: null, response }))
-  // eslint-disable-next-line
-  .catch((error) => ({ error, response: null }));
+  .then((resp) => ({ error: null, response: resp }))
+  .catch((err) => ({ error: err, response: null }));
   // If error fetching data
   if (error || !response) {
     // console.log('Error:', error.message);

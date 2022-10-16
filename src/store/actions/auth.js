@@ -1,20 +1,21 @@
 export const AuthenticationActions = {
-    LOGIN: 'LOGIN',
+    LOGIN_FAIL: 'LOGIN_FAIL',
+    LOGIN_SUCCESS: 'LOGIN_SUCCESS',
     LOGOUT: 'LOGOUT',
+};
+
+const authenticate = (username, password) => {
+    if (password !== 'supersecret') return AuthenticationActions.LOGIN_FAIL;
+    return AuthenticationActions.LOGIN_SUCCESS;
 };
 
 const authSlice = {
     login: (username, password) => ({
-        type: AuthenticationActions.LOGIN,
-        // eslint-disable-next-line
-        payload: {
-            username,
-            // eslint-disable-next-line
-            password,
-        }
+        payload: username,
+        type: authenticate(username, password)
     }),
     logout: () => ({
-      type: AuthenticationActions.LOGOUT,
+        type: AuthenticationActions.LOGOUT
     }),
 };
 

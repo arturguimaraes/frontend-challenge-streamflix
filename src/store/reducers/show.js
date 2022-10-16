@@ -1,60 +1,18 @@
 import { ShowActions } from '../actions/show';
 
-const initialState = {
-  loading: false,
-  typing: false,
-  // eslint-disable-next-line
-  show: null,
-  // eslint-disable-next-line
-  error: null,
-};
+const initialState = { error: null, loading: false, show: null, typing: false };
 
 const showReducer = (state = initialState, action = null) => {
   // console.log('Reducer called - State:', state, 'Action:', action);
   switch (action.type) {
-    // Start Typing Action
     case ShowActions.START_TYPING:
-      return {
-        ...state,
-        loading: false,
-        typing: true,
-        // eslint-disable-next-line
-        show: null,
-        // eslint-disable-next-line
-        error: null,
-      };
-    // Start Search Actions
+      return { ...state, error: null, loading: false, show: null, typing: true };
     case ShowActions.FETCH_SHOW_REQUEST:
-      return {
-        ...state,
-        loading: true,
-        typing: false,
-        // eslint-disable-next-line
-        show: null,
-        // eslint-disable-next-line
-        error: null,
-      };
+      return { ...state, error: null, loading: true, show: null, typing: false };
     case ShowActions.FETCH_SHOW_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        typing: false,
-        // eslint-disable-next-line
-        show: action.payload,
-        // eslint-disable-next-line
-        error: null,
-      };
+      return { ...state, error: null, loading: false, show: action.payload, typing: false };
     case ShowActions.FETCH_SHOW_ERROR:
-      return {
-        ...state,
-        loading: false,
-        typing: false,
-        // eslint-disable-next-line
-        show: null,
-        // eslint-disable-next-line
-        error: action.payload,
-      };
-    // Return current state
+      return { ...state, error: action.payload, loading: false, show: null, typing: false };
     default:
       return state;
   }
