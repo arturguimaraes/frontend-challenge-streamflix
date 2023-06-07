@@ -55,7 +55,7 @@ https://api.tvmaze.com/singlesearch/shows?q=Silicon%20Valley&embed=episodes
 
 - Disable the text input and search button while waiting for the API response.
 
-![Screen-Two](assets/screens/screenTwo.png)
+![Screen-Two](src/assets/screens/screenTwo.png)
 
 ## Screen Three, Results
 
@@ -71,13 +71,13 @@ https://api.tvmaze.com/singlesearch/shows?q=Silicon%20Valley&embed=episodes
 
 - On-click of another season, re-populate the view the correct data
 
-![Screen-Three](assets/screens/screenThree.png)
+![Screen-Three](src/assets/screens/screenThree.png)
 
 ## Screen Four, No Results
 
 - Show this screen if we get no results from the API
 
-![Screen-Four](assets/screens/screenFour.png)
+![Screen-Four](src/assets/screens/screenFour.png)
 
 ## Screen Five, Login Page
 
@@ -87,4 +87,4 @@ https://api.tvmaze.com/singlesearch/shows?q=Silicon%20Valley&embed=episodes
 
 - When login credentials are satisfied, set a value of `authorized` to `true` in Redux and use this `boolean` to disable unauthorized access on subsequent pages
 
-![Screen-Five](assets/screens/screenFive.png)
+![Screen-Five](src/assets/screens/screenFive.png)
