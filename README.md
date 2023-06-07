@@ -23,8 +23,6 @@ to install dependencies and get started.
 
 - Not required but nice to have:
   - Build `Screen Five` to prevent access to screens 1 - 4 until the user is logged in
-  - Some usage of `Flow` if you are familiar with Flow
-  - If you use flow, we prefer you focus your efforts on Reducers/Action Creators
 
 - Submission:
   - Remove `node_modules`
@@ -47,7 +45,7 @@ to install dependencies and get started.
 https://api.tvmaze.com/singlesearch/shows?q=Silicon%20Valley&embed=episodes
 ```
 
-![Screen-One](assets/screens/screenOne.png)
+![Screen-One](src/assets/screens/screenOne.png)
 
 ## Screen Two, Searching
 
