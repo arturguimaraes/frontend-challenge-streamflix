@@ -8,7 +8,7 @@ const seasonReducer = (state = initialState, action = null) => {
     case SeasonActions.SET_SEASONS:
       return { ...state, seasons: action.payload, selected: 1 };
     case SeasonActions.SELECT_SEASON:
-      return { ...state, seasons: action.payload, selected: 1 };
+      return { ...state, selected: action.payload };
     case SeasonActions.EMPTY_SEASONS:
       return { ...state, seasons: [], selected: 1 };
     default:
