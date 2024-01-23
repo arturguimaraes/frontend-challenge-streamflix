@@ -2,6 +2,10 @@
 
 StreamFlix is a dynamic web application designed for enthusiasts of television shows. It allows users to effortlessly search and explore a vast array of TV shows, offering detailed insights into episodes, seasons, and related information. Integrating with the TVMaze API, StreamFlix provides a comprehensive and up-to-date repository of TV show data.
 
+## Authentication
+
+To use the application, click here and type "supersecret" in the password field.
+
 ## Features
 
 - **TV Show Search**: Empowers users to search for TV shows using the TVMaze API, delivering quick and accurate results.
