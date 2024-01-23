@@ -4,7 +4,7 @@ StreamFlix is a dynamic web application designed for enthusiasts of television s
 
 ## Authentication
 
-To use this application, click here and type "supersecret" in the password field.
+To use this application, click [here](https://arturguimaraes.github.io/uber-challenge) and type "supersecret" in the password field.
 
 ## Features
 
