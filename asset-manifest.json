@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/uber-challenge/static/css/main.99ed447f.chunk.css",
+    "main.js": "/uber-challenge/static/js/main.7c9edff5.chunk.js",
+    "main.js.map": "/uber-challenge/static/js/main.7c9edff5.chunk.js.map",
+    "runtime-main.js": "/uber-challenge/static/js/runtime-main.d324de6a.js",
+    "runtime-main.js.map": "/uber-challenge/static/js/runtime-main.d324de6a.js.map",
+    "static/js/2.ff94b06a.chunk.js": "/uber-challenge/static/js/2.ff94b06a.chunk.js",
+    "static/js/2.ff94b06a.chunk.js.map": "/uber-challenge/static/js/2.ff94b06a.chunk.js.map",
+    "index.html": "/uber-challenge/index.html",
+    "static/css/main.99ed447f.chunk.css.map": "/uber-challenge/static/css/main.99ed447f.chunk.css.map",
+    "static/js/2.ff94b06a.chunk.js.LICENSE.txt": "/uber-challenge/static/js/2.ff94b06a.chunk.js.LICENSE.txt",
+    "static/media/logo.e108b7d0.svg": "/uber-challenge/static/media/logo.e108b7d0.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d324de6a.js",
+    "static/js/2.ff94b06a.chunk.js",
+    "static/css/main.99ed447f.chunk.css",
+    "static/js/main.7c9edff5.chunk.js"
+  ]
+}
