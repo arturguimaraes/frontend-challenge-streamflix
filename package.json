@@ -32,7 +32,9 @@
     "flow-bin": "^0.143.1",
     "gh-pages": "^6.1.1",
     "prettier": "1.12.1",
-    "immer": "^9.0.6"
+    "immer": ">=9.0.6",
+    "@babel/traverse": ">=7.23.2",
+    "lodash": ">=4.17.21"
   },
   "browserslist": {
     "production": [
